@@ -52,3 +52,4 @@
 	<script type="text/javascript" src="{{ asset('client') }}/script/template/jquery.template.searchForm.js"></script>
 	<script type="text/javascript" src="{{ asset('client') }}/script/template/jquery.template.testimonial.js"></script>
 	<script type="text/javascript" src="{{ asset('client') }}/script/public.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

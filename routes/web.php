@@ -62,10 +62,11 @@ Route::prefix('')->group(function () {
     Route::get('lien-he', function () {
         return view('website.contact');
     });
-    // trang lỗi 404
-    Route::get('404', function () {
-        return view('website.404');
-    });
+});
+
+// trang lỗi 404
+Route::fallback(function () {
+    return view('website.404');
 });
 Route::prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('user.index');

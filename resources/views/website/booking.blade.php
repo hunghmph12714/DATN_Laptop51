@@ -398,7 +398,7 @@
 									<div class="template-component-booking-service-name">
 										<span>Bảo Dưỡng Laptop</span>
 									</div>
-									<div class="template-component-booking-service-price">
+									<div class="template-component-boomaiking-service-price">
 										<span class="template-icon-booking-meta-price"></span>
 										<span class="template-component-booking-service-price-value">99000</span>
 										<span class="template-component-booking-service-price-currency">vnđ</span>
