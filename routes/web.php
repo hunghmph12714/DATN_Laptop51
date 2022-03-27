@@ -1,10 +1,13 @@
 <?php
 
+// use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductExportController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +25,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('website.index');
 });
+   Route::prefix('login')->group(function () {
+        Route::get('/', [LoginController::class, 'index'])->name('login.index');
+        
+        // Route::get('/', [RegisterController::class, 'index'])->name('register.index');
+    });        Route::get('/register', [LoginController::class, 'register'])->name('login.register');
 
 Route::prefix('')->group(function () {
     // đăng nhập
 
-    Route::get('login', function () {
-        return view('login');
-    });
+ 
+    // Route::get('forgot_password', function () {
+    //     return view('forgot_password');
+    // });
+    // Route::get('register', function () {
+    //     return view('register');
+    // });
     // trang cá nhân
     Route::get('profile', function () {
         return view('website.profile');
@@ -70,6 +82,14 @@ Route::prefix('')->group(function () {
         return view('website.404');
     });
 });
+// Route::prefix('forgot_password')->group(function () {
+//     Route::get('/', [UserController::class, 'index'])->name('forgot_password.index');
+    
+// });
+// Route::prefix('register')->group(function () {
+//     Route::get('/', [RegisterController::class, 'index'])->name('register.index');
+    
+// });
 Route::prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('user.index');
     Route::get('add', [UserController::class, 'addForm'])->name('user.add');

@@ -25,7 +25,7 @@ class UserController extends Controller
         // dd($request);
         $model = new User();  
         if($request->hasFile('avatar')){
-            $imgPath = $request->file('avatar')->store('public/users');
+            $imgPath = $request->file('avatar')->store('users');
             $imgPath = str_replace('public/', 'storage/', $imgPath);
             $model->avatar = $imgPath;
         }

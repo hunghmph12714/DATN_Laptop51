@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/vendor/bootstrap/{{ asset('client') }}/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/fonts/font-awesome-4.7.0/{{ asset('client') }}/css/font-awesome.min.css">
-<!--===============================================================================================-->
+<!--====================		===========================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/fonts/iconic/{{ asset('client') }}/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/vendor/animate/animate.css">
@@ -67,9 +67,18 @@
 							Bạn không có tài khoản?
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="/register">
 							Đăng ký
 						</a>
+					</div>
+					<div class="text-center p-t-15">
+						<span class="txt1">
+							Bạn quên mật khẩu?
+						</span>
+
+						{{-- <a class="txt2" href="{{route('forgot_password')}}">
+							Quên mật khẩu
+						</a> --}}
 					</div>
 				</form>
 			</div>
