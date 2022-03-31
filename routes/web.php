@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductExportController;
 use App\Http\Controllers\NewsController;
 use App\Models\Booking;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // Trang chủ
 Route::get('/', function () {
     return view('website.index');
-});
+});Auth::routes();
 Route::prefix('')->group(function () {
     // đăng nhập
 
@@ -37,6 +39,10 @@ Route::prefix('')->group(function () {
     // trang cửa hàng
     Route::get('cua-hang', function () {
         return view('website.product');
+    });
+    // Giỏ hàng
+    Route::get('cart', function () {
+        return view('website.cart');
     });
     // trang giới thiệu
     Route::get('gioi-thieu', function () {
@@ -84,9 +90,30 @@ Route::prefix('user')->group(function () {
     Route::get('edit/{id}', [UserController::class, 'editForm'])->name('user.edit');
     Route::post('edit/{id}', [UserController::class, 'saveEdit']);
 });
+
+
+// Route::prefix('dat-lich')->group(function () {
+//     Route::get('/', [BookingController::class, 'listBooking'])->name('dat-lich.index');
+//     Route::get('/danh-sach-may', [BookingController::class, 'listBookingDetail'])->name('dat-lich.danh-sach-may');
+
+//     Route::get('tao-moi', [BookingController::class, 'formCreateBooking'])->name('dat-lich.add');
+//     Route::post('tao-moi', [BookingController::class, 'creatBooking']);
+//     Route::get('sua/{id}', [BookingController::class, 'formEditBooking'])->name('dat-lich.edit');
+//     Route::post('sua/{id}', [BookingController::class, 'editBooking']);
+//     Route::get('xoa/{id}', [BookingController::class, 'deleteBooking'])->name('dat-lich.delete');
+// });
+// Route::prefix('sua-chua')->group(function () {
+//     Route::get('/{id}', [BookingController::class, 'repairDetail'])->name('suachua.get');
+// });
+// });
 Route::get('export-product', [ProductExportController::class, 'exportProduct'])->name('export-product');
 Route::get('export-detail-product', [ProductExportController::class, 'exportDetailProduct'])->name('export-detail-product');
 Route::get('import-product', [ProductExportController::class, 'importViewProduct'])->name('view-import-product');
 Route::post('import-product', [ProductExportController::class, 'importProduct'])->name('import-product');
 Route::get('import-detail-product', [ProductExportController::class, 'importViewDetailProduct'])->name('view-import-detail-product');
 Route::post('import-detail-product', [ProductExportController::class, 'importDetailProduct'])->name('import-detail-product');
+// Route::get('login',[ProductController::class, 'getlogin'])->name('login');
+// Route::get('login',[ProductController::class, 'postLogin']);
+// Route::get('info',[ProductController::class, 'getUserInfo']);
+// Route::get('logout',[ProductController::class, 'logOut']);
+Route::get('order', [MailController::class,'OrderSuccessEmail'])->name('order-mail');

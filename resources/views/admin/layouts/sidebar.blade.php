@@ -151,6 +151,7 @@
 
                 </ul>
             </li>
+<<<<<<< HEAD
 
             <li class="nav-item {{ request()->is('admin/tin-tuc') ? ' menu-is-opening menu-open' : '' }}">
                 <a href="" class="nav-link {{ request()->is('admin/tin-tuc*') ? 'active' : '' }}">
@@ -198,18 +199,35 @@
                     <i class="nav-icon fas fa-copy"></i>
                     <p>
                         Liên Hệ
+=======
+            <li class="nav-item {{ request()->is('admin/sua-chua*') ? ' menu-is-opening menu-open' : '' }}">
+                <a href="" class="nav-link {{ request()->is('admin/sua-chua*') ? 'active ' : '' }}">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                        Order
+>>>>>>> main
                         <i class="fas fa-angle-left right"></i>
                         <span class="badge badge-info right">6</span>
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a href="/admin/lien-he"
                             class="nav-link {{ request()->is('admin/lien-he') ? 'active' : '' }}">
+=======
+                        <a href="/admin/dat-lich"
+                            class="nav-link {{ request()->is('admin/category') ? 'active' : '' }}">
+>>>>>>> main
                             <i class="far fa-circle nav-icon"></i>
                             <p>Danh sách</p>
                         </a>
                     </li>
+<<<<<<< HEAD
+=======
+                    
+
+>>>>>>> main
                 </ul>
             </li>
         </ul>

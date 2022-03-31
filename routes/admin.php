@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BookingDetailController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DetailProductController;
+use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
@@ -10,6 +12,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Categories_newsController;
 
+use App\Http\Controllers\ThongkeController;
+use App\Models\DetailProduct;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[HomeAdminController::class,'index']);
 
 Route::prefix('category')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
@@ -65,9 +70,12 @@ Route::prefix('dat-lich')->group(function () {
     Route::get('sua/{id}', [BookingController::class, 'formEditBooking'])->name('dat-lich.edit');
     Route::post('sua/{id}', [BookingController::class, 'editBooking']);
     Route::get('xoa/{id}', [BookingController::class, 'deleteBooking'])->name('dat-lich.delete');
+    Route::get('demo', [BookingController::class, 'demo']);
+    Route::get('xoa-may/{id}', [BookingController::class, 'deleteBooking'])->name('dat-lich.deleteBookingDetail');
 });
 Route::prefix('sua-chua')->group(function () {
     Route::get('/{id}', [BookingController::class, 'repairDetail'])->name('suachua.get');
+
 });
 Route::prefix('lien-he')->group(function(){
     Route::get('/',[ContactController::class, 'index'])->name('contact.index');
@@ -103,4 +111,12 @@ Route::prefix('danh-muc-tin-tuc')->group(function(){
     
     //remove
     Route::get('/delete/{id}',[Categories_newsController::class, 'remove'])->name('category_news.remove');
+});
+    Route::post('/{id}', [BookingController::class, 'FinishRepairDetail']);
+    Route::get('/detail-product/{id}', [BookingDetailController::class, 'getDetailProduct']);
+
+
+Route::prefix('thongke')->group(function () {
+    Route::get('sanpham', [ThongkeController::class, 'index'])->name('thongke-sanpham');
+    
 });

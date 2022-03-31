@@ -37,7 +37,8 @@
 						<img src="{{ asset('client') }}/media/image/logo2.png" alt="" class="template-logo" />
 					</div>
 				</a>
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
+					@csrf
 					<span class="login100-form-title p-b-26">
 						Chào mừng đến với Laptop 51
 					</span>

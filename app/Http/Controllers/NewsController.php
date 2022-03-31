@@ -32,6 +32,7 @@ class NewsController extends Controller
         }
         $model->fill($request->all());
         // $model->actor = Auth::
+        dd(Auth::check());
         if(Auth::check()){
             $model->actor = Auth::id();
         }else{
