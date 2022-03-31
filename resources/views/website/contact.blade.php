@@ -110,11 +110,11 @@
 							</div>
 							<div class="template-component-form-field template-state-block">
 								<label for="contact-form-email">E-mail Của Bạn *</label>
-								<input type="text" name="contact-form-email" id="contact-form-email" />
+								<input type="email" name="contact-form-email" id="contact-form-email" />
 							</div>
 							<div class="template-component-form-field template-state-block">
 								<label for="contact-form-phone">Số Điện Thoại Liện Lạc</label>
-								<input type="text" name="contact-form-phone" id="contact-form-phone" />
+								<input type="number" name="contact-form-phone" id="contact-form-phone" />
 							</div>
 						</li>
 

@@ -512,7 +512,7 @@ body,*,input,textarea
 	}
 	.template-component-form-field select {
 		width: 100%;
-            padding: 15px 15px;
+            padding: 23px;
             border: 1px solid #FFFFFF;
 			color: #777777;
 	}

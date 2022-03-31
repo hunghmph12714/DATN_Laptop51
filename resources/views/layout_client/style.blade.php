@@ -16,5 +16,5 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/style/revolution/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/style/base.css" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('client') }}/style/responsive.css" />
-
+	
 	<script type="text/javascript" src="{{ asset('client') }}/script/jquery.min.js"></script>

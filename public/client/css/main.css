@@ -221,7 +221,13 @@ iframe {
     -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
-
+.wrap-login100 .logo {
+    text-align: center;
+}
+.wrap-login100 .logo img {
+    width: 35%;
+    height: 35%;
+}
 /*------------------------------------------------------------------
 [ Form ]*/
 
@@ -240,7 +246,6 @@ iframe {
 .login100-form-title i {
     font-size: 60px;
 }
-
 /*------------------------------------------------------------------
 [ Input ]*/
 
@@ -393,7 +398,6 @@ iframe {
     overflow: hidden;
     margin: 0 auto;
 }
-
 .login100-form-bgbtn {
     position: absolute;
     z-index: -1;

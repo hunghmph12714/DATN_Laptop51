@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProductExportController;
+use App\Http\Controllers\NewsController;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 
@@ -20,12 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('website.index');
 });
-
 Route::prefix('')->group(function () {
     // đăng nhập
 
     Route::get('login', function () {
         return view('login');
+    });
+    Route::get('register', function () {
+        return view('register');
     });
     // trang cá nhân
     Route::get('profile', function () {
@@ -55,6 +58,11 @@ Route::prefix('')->group(function () {
     Route::get('dich-vu-cho-macbook', function () {
         return view('website.dv-macbook');
     });
+    // trang tin tức
+    Route::prefix('tin-tuc')->group(function () {
+        Route::get('/', [NewsController::class, 'index'])->name('news.index');
+        Route::get('/{id}', [NewsController::class, 'detail'])->name('news.detail');
+    });
     // trang đặt lịch
     Route::get('dat-lich', function () {
         return view('website.booking');
@@ -64,7 +72,6 @@ Route::prefix('')->group(function () {
         return view('website.contact');
     });
 });
-
 // trang lỗi 404
 Route::fallback(function () {
     return view('website.404');
@@ -77,21 +84,6 @@ Route::prefix('user')->group(function () {
     Route::get('edit/{id}', [UserController::class, 'editForm'])->name('user.edit');
     Route::post('edit/{id}', [UserController::class, 'saveEdit']);
 });
-
-// Route::prefix('dat-lich')->group(function () {
-//     Route::get('/', [BookingController::class, 'listBooking'])->name('dat-lich.index');
-//     Route::get('/danh-sach-may', [BookingController::class, 'listBookingDetail'])->name('dat-lich.danh-sach-may');
-
-//     Route::get('tao-moi', [BookingController::class, 'formCreateBooking'])->name('dat-lich.add');
-//     Route::post('tao-moi', [BookingController::class, 'creatBooking']);
-//     Route::get('sua/{id}', [BookingController::class, 'formEditBooking'])->name('dat-lich.edit');
-//     Route::post('sua/{id}', [BookingController::class, 'editBooking']);
-//     Route::get('xoa/{id}', [BookingController::class, 'deleteBooking'])->name('dat-lich.delete');
-// });
-// Route::prefix('sua-chua')->group(function () {
-//     Route::get('/{id}', [BookingController::class, 'repairDetail'])->name('suachua.get');
-// });
-// });
 Route::get('export-product', [ProductExportController::class, 'exportProduct'])->name('export-product');
 Route::get('export-detail-product', [ProductExportController::class, 'exportDetailProduct'])->name('export-detail-product');
 Route::get('import-product', [ProductExportController::class, 'importViewProduct'])->name('view-import-product');

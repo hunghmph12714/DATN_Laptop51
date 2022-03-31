@@ -6,11 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bệnh Viện Laptop 51</title>
     @include('layout_client.style')
-    @include('layout_client.header')
 </head>
-<body>
-    <div class="template-content">
+<body class="template-page-book-your-wash">
+	<div class="template-header template-header-background template-header-background-1">
+		<div class="template-header-top">
+			@include('layout_client.menu')
+		</div>
+		<div class="template-header-bottom">
 
+			<div class="template-main">
+
+				<div class="template-header-bottom-page-title">
+					<h1>ĐẶT LỊCH SỬA CHỮA & BẢO HÀNH</h1>
+				</div>
+
+				<div class="template-header-bottom-page-breadcrumb">
+					<a href="index9ba3.html?page=home">Home</a><span class="template-icon-meta-arrow-right-12"></span><a
+						href="#">Đặt lịch</a>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+    <div class="template-content">
 		<!-- Section -->
 		<div class="template-component-booking template-section template-main" id="template-booking">
 
@@ -231,36 +250,6 @@
 									</div>
 								</li>
 
-								<!-- Package -->
-								<!-- <li data-id="ultimate-shine-1"
-									data-id-vehicle-rel="regular-size-car,compact-suv,minivan">
-									<h4 class="template-component-booking-package-name">Lấy Ngay (1 - 2 giờ)</h4>
-									<div class="template-component-booking-package-price">
-										<span class="template-component-booking-package-price-currency"></span>
-										<span class="template-component-booking-package-price-total">89000</span>
-										<span class="template-component-booking-package-price-decimal">vnđ</span>
-									</div>
-									<div class="template-component-booking-package-duration" hidden>
-										<span class="template-icon-booking-meta-duration"></span>
-										<span class="template-component-booking-package-duration-value">0</span>
-									</div>
-									<ul class="template-component-booking-package-service-list">
-										<li data-id="exterior-hand-wash">Exterior Hand Wash</li>
-										<li data-id="towel-hand-dry">Towel Hand Dry</li>
-										<li data-id="wheel-shine">Wheel Shine</li>
-										<li data-id="tire-dressing">Tire Dressing</li>
-										<li data-id="windows-in-and-out">Windows In &amp; Out</li>
-										<li data-id="sealer-hand-wax">Sealer Hand Wax</li>
-										<li data-id="interior-vacuum">Interior Vacuum</li>
-										<li data-id="trunk-vacuum">Trunk Vacuum</li>
-										<li data-id="door-shuts-and-plastics">Door Shuts &amp; Plastics</li>
-										<li data-id="dashboard-clean">Dashboard Clean</li>
-									</ul>
-									<div class="template-component-button-box">
-										<a href="#" class="template-component-button">Đặt</a>
-									</div>
-								</li> -->
-
 							</ul>
 
 						</div>
@@ -287,98 +276,6 @@
 
 							<!-- Service list -->
 							<ul class="template-component-booking-service-list">
-
-								<!-- Service -->
-								<!-- <li data-id="exterior-hand-wash" class="template-clear-fix"> -->
-
-								<!-- Name -->
-								<!-- <div class="template-component-booking-service-name">
-										<span>Exterior Hand Wash</span>
-										<a href="#" class="template-component-more-link">
-											<span>More...</span>
-											<span>Less...</span>
-										</a>
-										<div class="template-component-more-content">
-											We hand wash your paint with a pH neutral shampoo, we remove dirt without
-											damaging paint or trims. Your car&#309;s
-											exterior is chamois-dried to prevent water marks forming on the paint and
-											high pressure air is used to remove
-											water from panel joins and trim.
-										</div>
-									</div> -->
-
-								<!-- Duration -->
-								<!-- <div class="template-component-booking-service-duration">
-										<span class="template-icon-booking-meta-duration"></span>
-										<span class="template-component-booking-service-duration-value">10</span>
-										<span class="template-component-booking-service-duration-unit">min</span>
-									</div> -->
-
-								<!-- Price -->
-								<!-- <div class="template-component-booking-service-price">
-										<span class="template-icon-booking-meta-price"></span>
-										<span class="template-component-booking-service-price-currency">$</span>
-										<span class="template-component-booking-service-price-value"></span>
-										<span class="template-component-booking-service-price-unit">7</span>
-										<span class="template-component-booking-service-price-decimal">.95</span>
-									</div> -->
-
-								<!-- Button -->
-								<!-- <div class="template-component-button-box">
-										<a href="#" class="template-component-button">Select</a>
-									</div> -->
-
-								<!-- </li> -->
-
-								<!-- Service -->
-								<!-- <li data-id="towel-hand-dry" class="template-clear-fix">
-									<div class="template-component-booking-service-name">
-										<span>Towel Hand Dry</span>
-										<a href="#" class="template-component-more-link">
-											<span>More...</span>
-											<span>Less...</span>
-										</a>
-										<div class="template-component-more-content">
-											Your car’s exterior is chamois-dried to prevent water marks forming on the
-											paint and high pressure air is used
-											to remove water from panel joins and trim.
-										</div>
-									</div>
-									<div class="template-component-booking-service-duration">
-										<span class="template-icon-booking-meta-duration"></span>
-										<span class="template-component-booking-service-duration-value">10</span>
-										<span class="template-component-booking-service-duration-unit">min</span>
-									</div>
-									<div class="template-component-booking-service-price">
-										<span class="template-icon-booking-meta-price"></span>
-										<span class="template-component-booking-service-price-currency">$</span>
-										<span class="template-component-booking-service-price-value">5.50</span>
-									</div>
-									<div class="template-component-button-box">
-										<a href="#" class="template-component-button">Select</a>
-									</div>
-								</li>
-
-								Service -->
-								<!-- <li data-id="wheel-shine" class="template-clear-fix">
-									<div class="template-component-booking-service-name">
-										<span>Wheel Shine</span>
-									</div>
-									<div class="template-component-booking-service-duration">
-										<span class="template-icon-booking-meta-duration"></span>
-										<span class="template-component-booking-service-duration-value">5</span>
-										<span class="template-component-booking-service-duration-unit">min</span>
-									</div>
-									<div class="template-component-booking-service-price">
-										<span class="template-icon-booking-meta-price"></span>
-										<span class="template-component-booking-service-price-currency">$</span>
-										<span class="template-component-booking-service-price-value">5.00</span>
-									</div>
-									<div class="template-component-button-box">
-										<a href="#" class="template-component-button">Select</a>
-									</div>
-								</li> -->
-
 								<!-- Service -->
 								<li data-id="tire-dressing" class="template-clear-fix">
 									<div class="template-component-booking-service-name">
@@ -630,22 +527,30 @@
 								</li>
 
 							</ul>
-							<!-- Layout -->
-							<ul class="template-layout-100 template-layout-margin-reset template-clear-fix">
+							<ul class="template-layout-50x50 template-layout-margin-reset template-clear-fix">
 
-								<!-- Message -->
-								<li>
+								<!-- E-mail address -->
+								<li class="template-layout-column-left template-margin-bottom-reset">
 									<div class="template-component-form-field">
-										<label for="booking-form-select">Khung Giờ *
-											<select>
-												<option value="1">8:00 - 10:00</option>
-												<option value="2">10:00 - 12:00</option>
-												<option value="3">12:00 - 14:00</option>
-												<option value="4">14:00 - 16:00</option>
-											</select>
-										</label>
+										<label for="booking-form-select">Khung Giờ *</label>
+										<select>
+											<option value="1">8:00 - 10:00</option>
+											<option value="2">10:00 - 12:00</option>
+											<option value="3">12:00 - 14:00</option>
+											<option value="4">14:00 - 16:00</option>
+										</select>
 									</div>
 								</li>
+
+								<!-- Phone number -->
+								<li class="template-layout-column-right template-margin-bottom-reset">
+									<div class="template-component-form-field">
+										<label for="booking-form-vehicle-make">Ngày sửa </label>
+										<input type="date" name="booking-form-vehicle-make"
+											id="booking-form-vehicle-make" />
+									</div>
+								</li>
+
 							</ul>
 							<ul class="template-layout-100 template-layout-margin-reset template-clear-fix">
 

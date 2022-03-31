@@ -25,6 +25,9 @@
                         <a href="{{ asset('') }}gioi-thieu">Giới Thiệu</a>
                     </li>
                     <li>
+                        <a href="{{ asset('') }}tin-tuc">Tin Tức</a>
+                    </li>
+                    <li>
                         <a href="#">Các Dịch Vụ</a>
                         <ul>
                             <li><a href="{{ asset('') }}sua-laptop-lay-ngay-1h">Sửa Laptop lấy ngay 1h</a>

@@ -151,6 +151,67 @@
 
                 </ul>
             </li>
+
+            <li class="nav-item {{ request()->is('admin/tin-tuc') ? ' menu-is-opening menu-open' : '' }}">
+                <a href="" class="nav-link {{ request()->is('admin/tin-tuc*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                        Tin Tức
+                        <i class="fas fa-angle-left right"></i>
+                        <span class="badge badge-info right">6</span>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="/admin/tin-tuc"
+                            class="nav-link {{ request()->is('admin/tin-tuc') ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Danh sách tin tức</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/tin-tuc/add"
+                            class="nav-link {{ request()->is('admin/tin-tuc/add') ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Thêm mới tin tứcc</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/danh-muc-tin-tuc/add"
+                            class="nav-link {{ request()->is('admin/danh-muc-tin-tuc/add') ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Danh sách danh mục tin tức</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/danh-muc-tin-tuc/add"
+                            class="nav-link {{ request()->is('admin/danh-muc-tin-tuc/add') ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Thêm mới danh mục tin tức</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item {{ request()->is('admin/detail-product*') ? ' menu-is-opening menu-open' : '' }}">
+                <a href="" class="nav-link {{ request()->is('admin/detail-product*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                        Liên Hệ
+                        <i class="fas fa-angle-left right"></i>
+                        <span class="badge badge-info right">6</span>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="/admin/lien-he"
+                            class="nav-link {{ request()->is('admin/lien-he') ? 'active' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Danh sách</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
