@@ -6,31 +6,32 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\User_FormRequest;
+
+
 
 class UserController extends Controller
 {
     public function index(){
         $users = User::all();
-        // $users->load('roles');
-        return view('admin.users.index', [
-            'users' => $users,
-            // 'roles' =>$users
-        ]);
+        $users->load('role');
+        return view('admin.users.index',compact('users'));
     }
     public function addForm(){
         $roles = Role::all();
-        return view('admin.users.add');
+        return view('admin.users.add', compact('roles'));
     }
-    public function saveAdd(Request $request){
+    public function saveAdd(User_FormRequest $request){
         // dd($request);
-        $model = new User();  
+        $model = new User();
+        
         if($request->hasFile('avatar')){
-            $imgPath = $request->file('avatar')->store('public/users');
-            $imgPath = str_replace('public/', 'storage/', $imgPath);
-            $model->avatar = $imgPath;
+            $model->avatar = $request->file('avatar')->storeAs('user', uniqid() . '-' . $request->avatar->getClientOriginalName());
         }
-              
+        
         $model->fill($request->all());
+        $model->password = Hash::make($request->password);
         $model->save();
         return redirect(route('user.index'));
     }
@@ -46,7 +47,7 @@ class UserController extends Controller
         return redirect(route('user.index'));
     }
     public function editForm($id)
-    {
+    {   $roles = Role::all();
         $user = User::find($id);
         // $users = User::all();
         if (!$user) {
@@ -55,7 +56,7 @@ class UserController extends Controller
         
         return view(
             'admin.users.edit',
-            compact('user')
+            compact('user','roles')
         );
     }
     public function saveEdit(Request $request,$id)

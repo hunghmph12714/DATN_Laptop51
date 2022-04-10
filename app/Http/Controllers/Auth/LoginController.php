@@ -47,10 +47,15 @@ class LoginController extends Controller
         $credentials = $request->validate([
             'email' => ['required','email'],
             'password' => ['required'],
+        ],
+        [
+            'email.required' => "Hãy nhập tài khoản",
+            'email.email' => "Không đúng định dạng email",
+            'password.required' => "Hãy nhập mật khẩu"
         ]);
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('website.index');
+            return redirect()->intended('admin/thong-ke.index');
         }
         return back()->withErrors([
             'email' => 'Sai mật khẩu hoặc tài khoản, vui lòng nhập lại',

@@ -10,7 +10,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Categories_newsController;
+use App\Http\Controllers\Categories_NewsController;
+use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\ThongkeController;
 use App\Models\DetailProduct;
@@ -55,9 +56,9 @@ Route::prefix('detail-product')->group(function () {
     Route::post('edit/{id}', [DetailProductController::class, 'saveEdit']);
     Route::get('detail/{id}', [DetailProductController::class, 'detail']);
 });
-Route::prefix('login')->group(function () {
-    Route::get('/', [LoginController::class, 'index'])->name('login');
-});
+// Route::prefix('login')->group(function () {
+//     Route::get('/', [LoginController::class, 'index'])->name('login');
+// });
 Route::prefix('register')->group(function () {
     Route::get('/', [RegisterController::class, 'index'])->name('register');
 });
@@ -99,18 +100,18 @@ Route::prefix('tin-tuc')->group(function(){
 });
 Route::prefix('danh-muc-tin-tuc')->group(function(){
     //list
-    Route::get('/',[Categories_newsController::class, 'index'])->name('category_news.index');
+    Route::get('/',[Categories_NewsController::class, 'index'])->name('category_news.index');
 
     //add
-    Route::get('/add',[Categories_newsController::class, 'add'])->name('category_news.add');
-    Route::post('/add',[Categories_newsController::class, 'save_add']);
+    Route::get('/add',[Categories_NewsController::class, 'add'])->name('category_news.add');
+    Route::post('/add',[Categories_NewsController::class, 'save_add']);
 
     //edit
-    Route::get('/edit/{id}',[Categories_newsController::class, 'edit'])->name('category_news.edit');
-    Route::post('/edit/{id}',[Categories_newsController::class, 'save_edit']);
+    Route::get('/edit/{id}',[Categories_NewsController::class, 'edit'])->name('category_news.edit');
+    Route::post('/edit/{id}',[Categories_NewsController::class, 'save_edit']);
     
     //remove
-    Route::get('/delete/{id}',[Categories_newsController::class, 'remove'])->name('category_news.remove');
+    Route::get('/delete/{id}',[Categories_NewsController::class, 'remove'])->name('category_news.remove');
 });
     Route::post('/{id}', [BookingController::class, 'FinishRepairDetail']);
     Route::get('/detail-product/{id}', [BookingDetailController::class, 'getDetailProduct']);
@@ -118,5 +119,13 @@ Route::prefix('danh-muc-tin-tuc')->group(function(){
 
 Route::prefix('thongke')->group(function () {
     Route::get('sanpham', [ThongkeController::class, 'index'])->name('thongke-sanpham');
-    
+});
+
+Route::prefix('user')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+    Route::get('add', [UserController::class, 'addForm'])->name('user.add');
+    Route::post('add', [UserController::class, 'saveAdd']);
+    Route::get('/remove/{id}', [UserController::class, 'remove'])->name('user.remove');
+    Route::get('edit/{id}', [UserController::class, 'editForm'])->name('user.edit');
+    Route::post('edit/{id}', [UserController::class, 'saveEdit']);
 });

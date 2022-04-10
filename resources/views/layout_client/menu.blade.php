@@ -1,10 +1,10 @@
 <div class="template-header-top">
-
     <!-- Logo -->
     <div class="template-header-top-logo">
         <a href="{{ asset('') }}" title="">
             <img src="{{ asset('client') }}/media/image/logo1.png" alt="" class="template-logo" />
-            <img src="{{ asset('client') }}/media/image/logo_sticky.png" alt="" class="template-logo template-logo-sticky" />
+            <img src="{{ asset('client') }}/media/image/logo_sticky.png" alt=""
+                class="template-logo template-logo-sticky" />
         </a>
     </div>
 
@@ -16,7 +16,7 @@
             <div class="template-component-menu-default">
                 <ul class="sf-menu">
                     <li>
-                        <a href="{{ asset('') }}" class="template-state-selected">Trang Chủ</a>
+                        <a href="{{ asset('') }}">Trang Chủ</a>
                     </li>
                     <li>
                         <a href="{{ asset('') }}cua-hang">Sản Phẩm</a>
@@ -30,7 +30,8 @@
                     <li>
                         <a href="#">Các Dịch Vụ</a>
                         <ul>
-                            <li><a href="{{ asset('') }}sua-laptop-lay-ngay-1h">Sửa Laptop lấy ngay 1h</a>
+                            <li><a href="{{ asset('') }}sua-laptop-lay-ngay-1h">Sửa
+                                    Laptop lấy ngay 1h</a>
                             </li>
                             <li><a href="{{ asset('') }}sua-laptop-tai-nha-hoac-van-phong">Sửa Laptop tại
                                     nhà/văn phòng</a></li>
@@ -38,7 +39,8 @@
                                     phần cứng</a></li>
                             <li><a href="{{ asset('') }}cai-dat-phan-mem-ban-quyen">Cài đặt phần mềm bản
                                     quyền</a></li>
-                            <li><a href="{{ asset('') }}dich-vu-cho-macbook">Dịch vụ cho Macbook</a></li>
+                            <li><a href="{{ asset('') }}dich-vu-cho-macbook">Dịch
+                                    vụ cho Macbook</a></li>
                         </ul>
                     </li>
                     <li>
@@ -60,7 +62,7 @@
                                 class="touch-button template-icon-meta-arrow-large-tb template-component-menu-button-close"></span>&nbsp;</a>
                     </li>
                     <li>
-                        <a href="{{ asset('') }}" class="template-state-selected">Trang Chủ</a>
+                        <a href="{{ asset('') }}">Trang Chủ</a>
                     <li>
                         <a href="{{ asset('') }}cua-hang">Sản Phẩm</a>
                     </li>
@@ -92,7 +94,7 @@
 
         </nav>
         <script type="text/javascript">
-            jQuery(document).ready(function ($) {
+            jQuery(document).ready(function($) {
                 $('.template-header-top').templateHeader();
             });
         </script>
@@ -101,14 +103,49 @@
     <!-- Social icons -->
     <div class="template-header-top-icon-list template-component-social-icon-list-1">
         <ul class="template-component-social-icon-list">
-            <li><a href="https://twitter.com/quanticalabs" class="template-icon-social-twitter"
-                    target="_blank"></a></li>
-            <li><a href="https://www.facebook.com/QuanticaLabs" class="template-icon-social-facebook"
-                    target="_blank"></a></li>
-            <li><a href="indexd852.html?page=book-your-wash" class="template-icon-meta-cart"></a></li>
-            <li><a href="#" class="template-icon-meta-search"></a></li>
-            <li><a href="{{ asset('') }}login" class="template-icon-meta-user"></a></li>
-            <li><a href="#" class="template-icon-meta-menu"></a></li>
+            @if (Auth::user())
+                <div class="dropdown">
+                    {{ Auth::user()->name }}
+                    <a type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <ul>
+                                <li> <a class="dropdown-item" href="/admin">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    @if (Auth::check())
+                                        <a href="/logout" class="dropdown-item">Thoát</a>
+                                    @endif
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            @else
+                <li>
+                    <a href="https://twitter.com/quanticalabs" class="template-icon-social-twitter" target="_blank">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/QuanticaLabs" class="template-icon-social-facebook"
+                        target="_blank"></a>
+                </li>
+                <li>
+                    <a href="indexd852.html?page=book-your-wash" class="template-icon-meta-cart"></a>
+                </li>
+                <li>
+                    <a href="#" class="template-icon-meta-search"></a>
+                </li>
+                <li>
+                    <a href="{{ asset('') }}login" class="template-icon-meta-user"></a>
+                </li>
+                <li>
+                    <a href="#" class="template-icon-meta-menu"></a>
+                </li>
+            @endif
         </ul>
     </div>
 

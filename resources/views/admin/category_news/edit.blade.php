@@ -5,13 +5,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <div class="container">
-<h5 class="alert alert-danger  text-center">EDIT CATEGORY_NEWS</h5>
+<h5 class="alert alert-info  text-center">EDIT CATEGORY_NEWS</h5>
     <form action="" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                  <label for="">Name</label>
+                  <label for="">Tên Danh Mục</label>
                   <input type="text" name="name"value="{{$cate->name}}" class="form-control" placeholder="">
                 </div>  
             </div>            

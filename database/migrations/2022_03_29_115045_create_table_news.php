@@ -20,8 +20,9 @@ class CreateTableNews extends Migration
             $table->string('description_short')->nullable();
             $table->string('description')->nullable();
             $table->number('actor')->nullable();
-            $table->number('status')->nullable();
+            $table->bit('status')->nullable();
             $table->number('category_news_id')->nullable();
+            $table->number('view');
             $table->timestamps();
         });
     }

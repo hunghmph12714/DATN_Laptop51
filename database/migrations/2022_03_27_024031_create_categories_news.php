@@ -16,6 +16,7 @@ class CreateCategoriesNews extends Migration
         Schema::create('categories_news', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->number('quantity_news')->nullable();
             $table->timestamps();
         });
     }

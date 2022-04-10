@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Categories_new;
 use Illuminate\Http\Request;
 
-class Categories_newsController extends Controller
+class Categories_NewsController extends Controller
 {
     //list
-    public function index(){
-        $category_news = Categories_new::all();
-        return view('admin.category_news.index', compact('category_news'));
+    public function index(Request $request){
+        $pageSize = 10;
+        $keyword = $request->has('keyword') ? $request->keyword : "";
+        $query = Categories_new::where('name', 'like', "%$keyword%");
+        
+        $category_news = $query->paginate($pageSize);
+        $searchData = compact('keyword');
+        return view('admin.category_news.index', compact('category_news','searchData'));
     }
     //Add
     public function add(){
@@ -48,6 +53,7 @@ class Categories_newsController extends Controller
     public function remove($id){
         $cate = Categories_new::find($id);
         $cate->delete();
+         $cate->news()->delete();   
         return redirect(route('category_news.index'))->with('success','Xóa thành công');
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
@@ -9,6 +8,8 @@ use App\Http\Controllers\NewsController;
 use App\Models\Booking;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,19 +20,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Trang chủ
-Route::get('/', function () {
-    return view('website.index');
-});Auth::routes();
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Auth::routes();
+Route::get('/',[\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/logout',[\App\Http\Controllers\HomeController::class, 'logout']);
 Route::prefix('')->group(function () {
     // đăng nhập
 
-    Route::get('login', function () {
-        return view('login');
-    });
-    Route::get('register', function () {
-        return view('register');
-    });
+    // Route::get('login', function () {
+    //     return view('auth.login');
+    // });
+    // Route::get('register', function () {
+    //     return view('register');
+    // });
     // trang cá nhân
     Route::get('profile', function () {
         return view('website.profile');
@@ -66,8 +70,9 @@ Route::prefix('')->group(function () {
     });
     // trang tin tức
     Route::prefix('tin-tuc')->group(function () {
-        Route::get('/', [NewsController::class, 'index'])->name('news.index');
-        Route::get('/{id}', [NewsController::class, 'detail'])->name('news.detail');
+        Route::get('/', [NewsController::class, 'show'])->name('tin-tuc');
+        Route::get('/{id}', [NewsController::class, 'detail'])->name('tin-tuc-detail');
+        Route::get('/danh-muc/{id}', [NewsController::class, 'cates'])->name('category');
     });
     // trang đặt lịch
     Route::get('dat-lich', function () {
@@ -82,16 +87,11 @@ Route::prefix('')->group(function () {
 Route::fallback(function () {
     return view('website.404');
 });
-Route::prefix('user')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('user.index');
-    Route::get('add', [UserController::class, 'addForm'])->name('user.add');
-    Route::post('add', [UserController::class, 'saveAdd']);
-    Route::get('/remove/{id}', [UserController::class, 'remove'])->name('user.remove');
-    Route::get('edit/{id}', [UserController::class, 'editForm'])->name('user.edit');
-    Route::post('edit/{id}', [UserController::class, 'saveEdit']);
+
+//Link fake password
+Route::get('fake-password/{mk?}', function($mk = '123456'){
+    return Hash::make($mk);
 });
-
-
 // Route::prefix('dat-lich')->group(function () {
 //     Route::get('/', [BookingController::class, 'listBooking'])->name('dat-lich.index');
 //     Route::get('/danh-sach-may', [BookingController::class, 'listBookingDetail'])->name('dat-lich.danh-sach-may');
