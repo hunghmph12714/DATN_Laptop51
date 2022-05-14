@@ -22,7 +22,7 @@ class BillController extends Controller
             $bills = list_bill::where('type', $type_bill)->orderBy('id', 'desc')->paginate(8);
         }
         if (!empty($_GET['search'])) {
-            $bill =   $bills->where('code', '%' . $_GET['search'] . '%');
+            $bills =   list_bill::where('code', 'like', '%' . $_GET['search'] . '%')->orderBy('id', 'desc')->paginate(8);
         }
         $bill_user = BillUser::all();
 

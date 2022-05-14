@@ -39,17 +39,16 @@
                 <th colspan="3">Tổng</th>
                 <th id="tong"> 1</th>
             </tr>
-            <tr>
+            {{-- <tr>
                 <td></td>
                 <th colspan="3">Số tiền khách trả</th>
                 <th id="tong">
                     <div class="form-group">
-                        {{-- <label for=""></label> --}}
                         <form action="" method="POST" id="form_tien_khach_tra">
                             @csrf
                             <input type="number" onchange="tinhTien()" value="@if (!empty($list_bill->customers_pay))
                             {{ $list_bill->customers_pay }}
-                        @endif" class="form-control col-4" name="customers_pay" id="" aria-describedby="helpId"
+                        @endif" class="form-control col-4" if name="customers_pay" id="" aria-describedby="helpId"
                                 placeholder=" VND">
                         </form>
                     </div>
@@ -59,7 +58,7 @@
                 <td></td>
                 <th colspan="3">Tiền thừa</th>
                 <th id="tien_thua"> </th>
-            <tr>
+            <tr> --}}
 
         </tbody>
     </table>

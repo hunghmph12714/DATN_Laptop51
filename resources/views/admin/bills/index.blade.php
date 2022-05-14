@@ -25,20 +25,20 @@
             placeholder="Tìm kiếm mã hóa đơn">
         {{-- <button>Tìm</button> --}}
     </div>
-    <div class="form-group col-2">
-        {{-- <label for=""></label> --}}
+    {{-- <div class="form-group col-2">
         <select name="type_bill" class="form-control ">
             <option value="1">Bán hàng</option>
             <option value="2"> Sửa chữa</option>
-            {{-- <option></option> --}}
         </select>
+    </div> --}}
+    <div>
+        <button type="submit" class="btn btn-primary">Tất cả</button>
+
     </div>
     <div>
-        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-
+        <button type="submit" name="type_bill" value="1" class="btn btn-info"> Bán hàng</button>
+        <button type="submit" name="type_bill" value="2" class="btn btn-info"> Sửa chữa</button>
     </div class="form-group col-3">
-    {{-- <button type="submit" name="type_bill" value="1" class="btn btn-info"> Bán hàng</button>
-    <button type="submit" name="type_bill" value="2" class="btn btn-info"> Sửa chữa</button> --}}
 </form>
 
 <div class="row">
@@ -48,6 +48,7 @@
                 <thead>
                     <th>STT</th>
                     <th onclick="onClick()">Mã hóa đơn</th>
+                    <th>Loại hóa đơn</th>
                     <th>Tổng tiền</th>
                     <th>Phương thức</th>
                     <th>Trạng thái</th>
@@ -60,6 +61,12 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->code }}</td>
+                        <td>@if ($item->type==2)
+                            <span class="text-info">Sửa chữa</span>
+                            @else
+                            <span class="text-yellow">Bán hàng</span>
+                            @endif
+                        </td>
                         <td>
                             <?php
                                 // $total = str_replace('.', '', $item->total);
@@ -80,7 +87,11 @@
                         <td>{{ $item->created_at }}</td>
                         <td>
                             @can('list-bill')
-                            <a href="{{route('bill.detail',['id' => $item->id])}}" class="btn btn-sm btn-success">Chi
+                            <a @if ($item->type==2)
+                                href="{{ route('dat-lich.hoa-don', ['id'=>$item->booking_detail_id]) }}"
+                                @else
+                                href="{{route('bill.detail',['id' => $item->id])}}"
+                                @endif class="btn btn-sm btn-success">Chi
                                 tiết</a>
                             @endcan
                             @can('edit-bill')

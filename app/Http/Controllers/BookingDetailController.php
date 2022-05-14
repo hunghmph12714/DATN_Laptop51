@@ -41,7 +41,7 @@ class BookingDetailController extends Controller
         if ($booking_detail) {
             $list_bill = list_bill::where('booking_detail_id', $booking_detail_id)->first();
             $data = [
-                'codebill' => $booking_detail->code,
+                'code' => $booking_detail->code,
                 'booking_detail_id' => $booking_detail_id,
                 'date' => now(),
                 'total_price' => array_sum(array_column($repair_parts->toArray(), 'into_money')),
@@ -51,7 +51,7 @@ class BookingDetailController extends Controller
             ];
             if (!$list_bill) {
                 $data = [
-                    'codebill' => $booking_detail->code,
+                    'code' => $booking_detail->code,
                     'booking_detail_id' => $booking_detail_id,
                     'date' => now(),
                     'total_price' => array_sum(array_column($repair_parts->toArray(), 'into_money')),
@@ -63,7 +63,7 @@ class BookingDetailController extends Controller
                 foreach ($repair_parts as $r) {
                     $data1 = [
                         'quaty' => $r->quantity,
-                        'code_bill' => $bill_repair->codebill,
+                        'bill_code' => $bill_repair->codebill,
                         'bill_id' => $bill_repair->id,
                         'nhap' => 0,
                         'ban' => $r->unit_price,
@@ -101,7 +101,7 @@ class BookingDetailController extends Controller
         if ($booking_detail) {
             $list_bill = list_bill::where('booking_detail_id', $booking_detail_id)->first();
             $data = [
-                'codebill' => $booking_detail->code,
+                'code' => $booking_detail->code,
                 'booking_detail_id' => $booking_detail_id,
                 'date' => now(),
                 'total_price' => array_sum(array_column($repair_parts->toArray(), 'into_money')),
@@ -113,7 +113,7 @@ class BookingDetailController extends Controller
             ];
             if (!$list_bill) {
                 $data = [
-                    'codebill' => $booking_detail->code,
+                    'code' => $booking_detail->code,
                     'booking_detail_id' => $booking_detail_id,
                     'date' => now(),
                     'total_price' => array_sum(array_column($repair_parts->toArray(), 'into_money')),
@@ -131,7 +131,7 @@ class BookingDetailController extends Controller
                     }
                     $data1 = [
                         'quaty' => $r->quantity,
-                        'code_bill' => $bill_repair->codebill,
+                        'bill_code' => $bill_repair->codebill,
                         'bill_id' => $bill_repair->id,
                         'nhap' =>  $nhap,
                         'ban' => $r->unit_price,
